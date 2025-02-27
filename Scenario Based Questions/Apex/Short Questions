@@ -1,0 +1,13 @@
+# SOQL
+Q: Retrieve Accounts Created in the Last 30 Days
+A: SELECT Id, Name FROM Account WHERE CreatedDate = LAST_N_DAYS:30
+
+Q: Query for Accounts Without Related Contacts
+A: SELECT Id, Name FROM Account WHERE Id NOT IN (SELECT AccountId FROM Contact)
+
+Q: Query Accounts with Multiple Related Opportunities
+A: SELECT AccountId, COUNT(Id) FROM Opportunity GROUP BY AccountId HAVING COUNT(Id) > 1
+
+Q: How to enable field- and object-level security permissions checking for SOQL
+A: Use the WITH SECURITY_ENFORCED clause to enable field- and object-level security permissions checking for SOQL SELECT queries in Apex code, including subqueries and cross-object relationships.
+
